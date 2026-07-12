@@ -1,0 +1,166 @@
+/* Dark blurred background overlay */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Main Modal Card */
+.modalContent {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    padding: 2rem;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Header & Close Button */
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--text-main);
+}
+
+.closeBtn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.closeBtn:hover {
+    color: var(--text-main);
+    background: transparent;
+}
+
+/* Settings Modal Specifics */
+.settingItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.settingItem:last-child {
+    border-bottom: none;
+}
+
+.dangerBtn {
+    background-color: rgba(248, 113, 113, 0.1);
+    color: #f87171 !important;
+    border: 1px solid #f87171;
+}
+
+.dangerBtn:hover {
+    background-color: #f87171;
+    color: #fff !important;
+}
+
+/* Upgrade Modal Specifics */
+.upgradeModal {
+    max-width: 600px;
+}
+
+.pricingTable {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.tier {
+    flex: 1;
+    background-color: var(--bg-dropdown);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.proTier {
+    border-color: var(--accent);
+    position: relative;
+}
+
+.tier h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0 1.5rem 0;
+}
+
+.price span {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: normal;
+}
+
+.tier ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.tier li {
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.tier li i {
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+.tierBtn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.tierBtn.active {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+}
+
+.tierBtn.active:hover {
+    background-color: #0076df;
+}
+
+.tierBtn.disabled {
+    background-color: var(--bg-input);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}

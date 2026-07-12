@@ -1,0 +1,4 @@
+.app {
+    background-color: var(--bg-main);
+    display: flex;
+}
