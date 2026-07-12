@@ -13,7 +13,7 @@ function Sidebar() {
             if (!token) return;
 
             try {
-                const response = await fetch("[https://sigmagpt-backend-dn0n.onrender.com](https://sigmagpt-backend-dn0n.onrender.com)/api/thread", {
+                const response = await fetch("https://sigmagpt-backend-dn0n.onrender.com/api/thread", {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
                 
@@ -46,7 +46,7 @@ function Sidebar() {
         const token = localStorage.getItem("token");
 
         try {
-            const response = await fetch(`[https://sigmagpt-backend-dn0n.onrender.com](https://sigmagpt-backend-dn0n.onrender.com)/api/thread/${newThreadId}`, {
+            const response = await fetch(`https://sigmagpt-backend-dn0n.onrender.com/api/thread/${newThreadId}`, {
                 headers: { "Authorization": `Bearer ${token}` }
             });
             
@@ -64,7 +64,7 @@ function Sidebar() {
     const deleteThread = async (threadId) => {
         const token = localStorage.getItem("token");
         try {
-            const response = await fetch(`[https://sigmagpt-backend-dn0n.onrender.com](https://sigmagpt-backend-dn0n.onrender.com)/api/thread/${threadId}`, {
+            const response = await fetch(`https://sigmagpt-backend-dn0n.onrender.com/api/thread/${threadId}`, {
                 method: "DELETE",
                 headers: { "Authorization": `Bearer ${token}` }
             });

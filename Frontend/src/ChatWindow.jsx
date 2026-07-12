@@ -56,7 +56,7 @@ function ChatWindow() {
         };
 
         try {
-            const response = await fetch("[https://sigmagpt-backend-dn0n.onrender.com](https://sigmagpt-backend-dn0n.onrender.com)/api/chat", options);
+            const response = await fetch("https://sigmagpt-backend-dn0n.onrender.com/api/chat", options);
             const res = await response.json();
             setReply(res.reply);
         } catch(err) {
