@@ -4,9 +4,18 @@ import { MyContext } from "./MyContext.jsx";
 import { v1 as uuidv1 } from "uuid";
 
 function Sidebar() {
-    const { allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats } = useContext(MyContext);
+    const { 
+        allThreads, 
+        setAllThreads, 
+        currThreadId, 
+        setNewChat, 
+        setPrompt, 
+        setReply, 
+        setCurrThreadId, 
+        setPrevChats 
+    } = useContext(MyContext);
 
-    // FIXED: The empty bracket [] guarantees this physically cannot loop.
+    // Loads historical threads when the application mounts
     useEffect(() => {
         const loadThreads = async () => {
             const token = localStorage.getItem("token");
@@ -31,7 +40,7 @@ function Sidebar() {
         };
 
         loadThreads();
-    }, []); // <-- This empty array acts as an absolute lock.
+    }, [setAllThreads]); // Secure dependency alignment
 
     const createNewChat = () => {
         setNewChat(true);
@@ -83,7 +92,8 @@ function Sidebar() {
     return (
         <section className="sidebar">
             <button onClick={createNewChat}>
-                <img src="src/assets/blacklogo.png" alt="gpt logo" className="logo" />
+                {/* FIXED: Path optimized for production deployment Vercel builds */}
+                <img src="/blacklogo.png" alt="gpt logo" className="logo" />
                 <span className="sidebarBrand"><b>SigmaGPT</b></span>
                 <span><i className="fa-solid fa-pen-to-square"></i></span>
             </button>
@@ -108,7 +118,7 @@ function Sidebar() {
             </ul>
  
             <div className="sign">
-                <p>By Amit Gavane </p>
+                <p>By Amit Gavane</p>
             </div>
         </section>
     );
