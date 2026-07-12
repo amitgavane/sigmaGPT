@@ -41,7 +41,7 @@ function Sidebar() {
         };
 
         loadThreads();
-    }, [setAllThreads]); // Secure dependency alignment
+    }, []); // Secure dependency alignment
 
     const createNewChat = () => {
         setNewChat(true);
