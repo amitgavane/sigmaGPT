@@ -24,8 +24,8 @@ button {
 
 /* FIXED: Optimized to prevent production image cropping and layout compression */
 .logo {
-    height: 24px;
-    width: 24px;
+    height: 40px;
+    width: 40px;
     object-fit: contain;
     display: block;
 }
